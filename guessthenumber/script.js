@@ -1,31 +1,31 @@
-'use strict';
+"use strict";
 
 let randomNum = Math.trunc(Math.random() * 20) + 1;
 
-document.querySelector('.btn.check').addEventListener('click', function () {
+document.querySelector(".btn.check").addEventListener("click", function () {
   // document.querySelector('.number').textContent = randomNum;
-  let val = Number(document.querySelector('.guess').value);
-  let scoreVal = Number(document.querySelector('.score').textContent);
+  let val = Number(document.querySelector(".guess").value);
+  let scoreVal = Number(document.querySelector(".score").textContent);
   //When there is no input
   if (val === 0) {
-    document.querySelector('.message').textContent = '🤦‍♂️ No Number here!🤷‍♂️';
+    document.querySelector(".message").textContent = "🤦‍♂️ No Number here!🤷‍♂️";
   } else if (val <= 20) {
     //when input is correct
     if (val === randomNum) {
-      document.querySelector('.message').textContent = '👏 Correct Number!';
-      document.querySelector('.number').textContent = randomNum;
-      document.querySelector('body').style.backgroundColor = '#5a9681';
-      document.querySelector('.number').style.width = '30rem';
-      let Score = Number(document.querySelector('.score').textContent);
-      let highScore = Number(document.querySelector('.highscore').textContent);
+      document.querySelector(".message").textContent = "👏 Correct Number!";
+      document.querySelector(".number").textContent = randomNum;
+      document.querySelector("body").style.backgroundColor = "#5a9681";
+      document.querySelector(".number").style.width = "30rem";
+      let Score = Number(document.querySelector(".score").textContent);
+      let highScore = Number(document.querySelector(".highscore").textContent);
       if (Score > highScore) {
-        document.querySelector('.highscore').textContent = Score;
+        document.querySelector(".highscore").textContent = Score;
       }
     }
 
     //when input is higher
     else if (val > randomNum) {
-      validate('High', scoreVal, val);
+      validate("High", scoreVal, val);
       // if (scoreVal > 1) {
       //   if (val <= Math.abs(randomNum + 4)) {
       //     document.querySelector('.message').textContent = '📈Number is High!';
@@ -43,7 +43,7 @@ document.querySelector('.btn.check').addEventListener('click', function () {
 
     //when input is Less
     else if (val < randomNum) {
-      validate('Low', scoreVal, val);
+      validate("Low", scoreVal, val);
       // if (scoreVal > 1) {
       //   if (val >= Math.abs(randomNum - 4)) {
       //     document.querySelector('.message').textContent = '📉Number is Low!';
@@ -60,36 +60,36 @@ document.querySelector('.btn.check').addEventListener('click', function () {
   }
   //Whn number is greater then 20
   else {
-    document.querySelector('.message').textContent =
-      '⛔Number Should below 20!';
+    document.querySelector(".message").textContent =
+      "⛔Number Should below 20!";
   }
 });
 
 //Again buttons reset functionality
-document.querySelector('.again').addEventListener('click', function () {
-  document.querySelector('.message').textContent = 'Start guessing...';
-  document.querySelector('.number').textContent = '?';
-  document.querySelector('body').style.backgroundColor = '#222';
-  document.querySelector('.number').style.width = '15rem';
-  document.querySelector('.score').textContent = 20;
+document.querySelector(".again").addEventListener("click", function () {
+  document.querySelector(".message").textContent = "Start guessing...";
+  document.querySelector(".number").textContent = "?";
+  document.querySelector("body").style.backgroundColor = "#222";
+  document.querySelector(".number").style.width = "15rem";
+  document.querySelector(".score").textContent = 5;
   randomNum = Math.trunc(Math.random() * 20) + 1;
-  document.querySelector('.guess').value = '';
+  document.querySelector(".guess").value = "";
   // document.querySelector('.number').textContent = randomNum;
 });
 
 function validate(result, scoreVal, val) {
   if (scoreVal > 1) {
     if (val >= Math.abs(randomNum - 4)) {
-      document.querySelector('.message').textContent =
-        '📉Number is ' + result + '!';
+      document.querySelector(".message").textContent =
+        "📉Number is " + result + "!";
     } else {
-      document.querySelector('.message').textContent =
-        '📉Number is too ' + result + '!';
+      document.querySelector(".message").textContent =
+        "📉Number is too " + result + "!";
     }
-    document.querySelector('.score').textContent = scoreVal - 1;
+    document.querySelector(".score").textContent = scoreVal - 1;
   } else {
-    document.querySelector('.message').textContent = '😜You Lost Game!';
-    document.querySelector('.score').textContent = 0;
+    document.querySelector(".message").textContent = "😜You Lost Game!";
+    document.querySelector(".score").textContent = 0;
   }
 }
 /*var val = function () {
